@@ -1,0 +1,22 @@
+apiVersion: backstage.io/v1alpha1
+kind: Component
+metadata:
+  # El nombre del componente. Usamos la variable repoName del formulario.
+  name: ${{ parameters.repoName }}
+  # Una descripción del componente. Usamos la variable reportTitle.
+  description: ${{ parameters.reportTitle }}
+  links:
+    - url: https://github.com/exe72418/${{ parameters.repoName }}
+      title: Repositorio en GitHub
+  # Las anotaciones son metadatos adicionales para Backstage.
+  annotations:
+    # La URL del repositorio, crucial para que Backstage encuentre el código.
+    backstage.io/source-location: url:https://github.com/exe72418/${{ parameters.repoName }}
+
+spec:
+  # El tipo de componente, en este caso, un servicio.
+  type: service
+  # El ciclo de vida. 'experimental' es un buen punto de partida.
+  lifecycle: experimental
+  # El propietario del componente.
+  owner: user:exe72418
