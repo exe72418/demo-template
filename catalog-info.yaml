@@ -1,0 +1,16 @@
+apiVersion: backstage.io/v1alpha1
+kind: Component
+metadata:
+  # Usa este filtro para asegurar que el nombre siempre sea válido.
+  # Reemplaza espacios con guiones y convierte a minúsculas.
+  name: ${{ parameters.repoName | lower | replace(' ', '-') }}
+  description: ${{ parameters.reportTitle }}
+  links:
+    - url: https://github.com/exe72418/${{ parameters.repoName }}
+      title: Repositorio en GitHub
+  annotations:
+    backstage.io/source-location: url:https://github.com/exe72418/${{ parameters.repoName }}
+spec:
+  type: service
+  lifecycle: experimental
+  owner: user:exe72418
